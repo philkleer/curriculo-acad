@@ -12,7 +12,7 @@ Eu iniciei este projeto e, como no meu currículo do [LATTES](https://lattes.cnp
 
 ## Fonts
 
-Eu uso [Source Sans Pro](https://fonts.google.com/specimen/Source+Sans+3), que você pode obter [aqui](https://fonts.google.com/specimen/Source+Sans+3).
+Eu uso [Source Sans 3](https://fonts.google.com/specimen/Source+Sans+3), que você pode obter [aqui](https://fonts.google.com/specimen/Source+Sans+3).
 
 ## Uso
 
