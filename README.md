@@ -208,7 +208,7 @@ Embaixo tem uma tabela sobre as áreas no currículo Lattes. Eu não tenho todas
 | Educação e Popularização de C&T - Outra produção técnica |  ⛔️ | ✅ | ❌ | ❌  | |
 | Educação e Popularização de C&T - Outra produção artística/ cultural |  ⛔️ | ✅ | ❌ | ❌  | |
 | **Licenças** | ⛔️ | 🧐 | 🧐 | 🧐 |  |
-| **Citações** | ⛔️ | 🧐 | 🧐 | 🧐 | |
+| **Citações** | ⛔️ | ✅ | ✅ | ✅ | |
 | **Totais de produções** (você poderia escolher também para resumido e ampliado com argumento `last_page`) | 👷🏼 | ✅ | ❌ | ❌ | |
 | **Outras informações relevantes** | ⛔️ | 🧐 | 🧐 | 🧐 | |
 
