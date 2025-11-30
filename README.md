@@ -33,13 +33,13 @@ A estrutura do arquivo principal é bastante simples. Você só precisa indicar 
 
 ```typst
 // Import of libraries
-#import "lib.typ": *
+#import "@preview/curriculo-acad:0.1.1": *
 #import "@preview/datify:1.0.0": *
 
 #show: lattes-cv.with(
   database: "data/lattes.toml",
   kind: "completo",
-  me: "KLEER",
+  me: "PESSOA",
   date: datetime.today()
   last_page: true
 )     
@@ -47,7 +47,7 @@ A estrutura do arquivo principal é bastante simples. Você só precisa indicar 
 
 #### Uso de Typst local
 
-Antes de usar, você precisa instalar ou fazer update para Typst 0.12. Como você poderia instalar é descrevido [aqui](https://github.com/typst/typst).
+Antes de usar, você precisa instalar ou fazer update para Typst 0.14. Como você poderia instalar é descrevido [aqui](https://github.com/typst/typst).
 
 #### Uso no editor online de Typst
 Você poderia usar o editor online de [Typst](https://typst.app) para criar um projeto. Você poderia copiar esse projeto que já tem todos os arquivos (sem o arquivo criado do Lattes): [Link](https://typst.app/project/rDHeKkEoT9UuHDnnH93mQq). Você poderia copiar o projeto para usar.
@@ -239,7 +239,7 @@ I started this project, and since my [LATTES](https://lattes.cnpq.br) résumé d
 
 ## Fonts
 
-I use [Source Sans 3](https://fonts.google.com/specimen/Source+Sans+3), which you can get [here](https://fonts.google.com/specimen/Source+Sans+3).
+I use [Source Sans Pro](https://fonts.google.com/specimen/Source+Sans+3), which you can get [here](https://fonts.google.com/specimen/Source+Sans+3).
 
 ## Usage
 
@@ -261,7 +261,7 @@ The structure of the main file is quite simple. You only need to specify which v
 
 ```typst
 // Import of libraries
-#import "lib.typ": *
+#import "@preview/curriculo-acad:0.1.1": *
 #import "@preview/datify:1.0.0": *
 
 #show: lattes-cv.with(
@@ -275,7 +275,7 @@ The structure of the main file is quite simple. You only need to specify which v
 
 #### Using Typst locally  
 
-Before using it, you need to install or update to Typst 0.12. Instructions on how to install it are described [here](https://github.com/typst/typst).  
+Before using it, you need to install or update to Typst 0.14. Instructions on how to install it are described [here](https://github.com/typst/typst).  
 
 #### Using Typst's online editor  
 
