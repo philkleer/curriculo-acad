@@ -1,9 +1,10 @@
 // import of libraries
-#import "src/lib.typ": *
-#import "@preview/datify:0.1.3": *
+#import "@preview/curriculo-acad:0.1.3": *
+#import "@preview/datify:1.0.0": *
+
 
 // criando banco de dados
-#let dados = toml("data/jarbson.toml")
+#let dados = toml("data/exemplo.toml")
 
 // função: criar Lattes CV
 // Argumentos:
@@ -15,5 +16,5 @@
   dados,
   kind: "completo",
   me: "KLEER",
-  last-page: true
-)   
+  last-page: true,
+)

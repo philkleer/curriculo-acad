@@ -1,8 +1,6 @@
-# create-lattes-cv
+# curriculo-acad
 
 # 👷🏼‍♀️ ⚠ Ainda em construção, não está pronto para todos os tipos de entradas.
-
-O template está disponível no [Typst]([https://](https://typst.app/universe/package/curriculo-acad)), um _editor online_, como *curriculo-acad*. Você pode usar diretamente este link para criar um projeto: [link](https://typst.app/app?template=curriculo-acad&version=0.1.0). Não esquece de transformar seu arquivo XML com o `helper.py` para TOML e enviar no projeto criado. 
 
 _English version below_
 
@@ -27,6 +25,8 @@ python3 helper.py caminho-para-o-seu-arquivo-xml
 
 Isso criará o arquivo `meu-arquivo.toml`, que você poderá usar nos documentos do Typst.
 
+O script você encontra [aqui](https://github.com/philkleer/curriculo-acad).
+
 ### Criando o PDF 
 
 A estrutura do arquivo principal é bastante simples. Você só precisa indicar qual versão do currículo deseja no argumento `kind`: `resumido`, `ampliado` ou `completo`. Dependendo da sua escolha, você utiliza a função específica:
@@ -34,7 +34,7 @@ A estrutura do arquivo principal é bastante simples. Você só precisa indicar 
 ```typst
 // Import of libraries
 #import "lib.typ": *
-#import "@preview/datify:0.1.3": *
+#import "@preview/datify:1.0.0": *
 
 #show: lattes-cv.with(
   database: "data/lattes.toml",
@@ -84,37 +84,36 @@ Embaixo tem uma tabela sobre as áreas no currículo Lattes. Eu não tenho todas
 
 🧐 : não certo que é incluído ou não
 
-| Área | Coded? | *completo* | *ampliado* | *resumido* | Key para área | 
-| :---------------- | :----:| :----:| :----:| :----:| :---------|
-| **Identificação** |  🎬 | ✅ | ✅ | ✅ | `detalhes.DADOS-GERAIS` |
-| **Idiomas** | 🎬 | ✅ | ✅ | ❌ | `DADOS-GERAIS.IDIOMAS` |
-| **Formação acadêmica** (provavelmente nem todos tipos) | 👷🏼 | ✅ | ✅ | ✅ | `DADOS-GERAIS.FORMACAO-ACADEMICA-TITULACAO` |
-| **Formação complementar** |  🎬 |  ✅ |  ✅ |  ✅ | `DADOS-COMPLEMENTARES.FORMACAO-COMPLEMENTAR` |
-| **Atuação profissional** (talvez tenha mais tipos) | 👷🏼 |  ✅ |  ✅ |  ✅ | `DADOS-GERAIS.ATUACOES-PROFISSIONAIS.ATUACAO-PROFISSIONAL` |
-| Atuação profissional - Vínculos | 🎬 |  ✅ |  ✅ |  ✅ | `DADOS-GERAIS.ATUACOES-PROFISSIONAIS.ATUACAO-PROFISSIONAL.VINCULOS` |
-| Atuação profissional - Vínculos - Atividades Comissões (provavelmente não todos tipos) | 👷🏼 |  ✅ |  ✅ |  ✅ | `DADOS-GERAIS.ATUACOES-PROFISSIONAIS.ATUACAO-PROFISSIONAL.ATIVIDADES-DE-CONSELHO-COMISSAO-E-CONSULTORIA`|
-| Atuação profissional - Vínculos - Atividades Ensino (provavelmente não todos tipos) | 👷🏼 |  ✅ |  ✅ |  ✅ | `DADOS-GERAIS.ATUACOES-PROFISSIONAIS.ATUACAO-PROFISSIONAL.ATIVIDADES-DE-ENSINO` |
-| **Projetos** (talvez tenha mais tipos) | 👷🏼 |  ✅ |  ❌ |  ❌ | `DADOS-GERAIS.ATUACOES-PROFISSIONAIS.ATUACAO-PROFISSIONAL.ATIVIDADES-DE-PARTICIPACAO-EM-PROJETO` |
-| Projetos - Projetos de pesquisa |  🎬 |  ✅ |  ❌ | ❌ | `.PROJETO-DE-PESQUISA` |
-| Projetos - Projetos de desenvolvimento tecnologica |  👷🏼 |  ✅ |  ❌ | ❌ |  |
-| Projetos - Projetos de extensão |  🎬 |  ✅ |  ❌ | ❌ | `.PROJETO-DE-EXTENSAO` |
-| Projetos - Projetos de ensino |  🎬 |   ✅ |  ❌ | ❌ | `.PROJETO-DE-ENSINO` |
-| Projetos - Outros tipos de extensão |  👷🏼 |  ✅ |  ❌ | ❌ | |
-| **Revisor periódico** | 🎬 |  ✅ |  ✅ |  ✅ | `DADOS-GERAIS.ATUACOES-PROFISSIONAIS.ATUACAO-PROFISSIONAL.VINCULOS.OUTRO-VINCULO-INFORMADO` |
-| **Membro de comitê de assessora** | 🎬 |  ✅ |  ✅ |  ✅ | `DADOS-GERAIS.ATUACOES-PROFISSIONAIS.ATUACAO-PROFISSIONAL.VINCULOS.OUTRO-VINCULO-INFORMADO` |
-| **Revisor de projeto de agência de fomento** | 🎬 |  ✅ |  ✅ |  ✅ | `DADOS-GERAIS.ATUACOES-PROFISSIONAIS.ATUACAO-PROFISSIONAL.VINCULOS.OUTRO-VINCULO-INFORMADO` |
-| **Área de atuação** |   🎬 |  ✅ |  ✅ | ❌ | `DADOS-GERAIS.AREAS-DE-ATUACAO.AREA-DE-ATUACAO`  |
-| **Prêmios e títulos** (provavelmente nem todos tipos) |  👷🏼 | ✅ | ✅ | ❌ |`DADOS-GERAIS.PREMIOS-TITULOS` |
-| **Produção bibliográfica** (talvez tenha mais tipos) | 👷🏼 | ✅ | ✅ | ✅ |`PRODUCAO-BIBLIOGRAFICA` |
-| Produção bibliográfica - artigos | 🎬 |  ✅ |  ✅ |  ✅ |`PRODUCAO-BIBLIOGRAFICA.ARTIGOS-PUBLICADOS.ARTIGO-PUBLICADO` |
-| Produção bibliográfica - livros | 🎬 |  ✅ |  ✅ |  ✅ | `PRODUCAO-BIBLIOGRAFICA.LIVROS-E-CAPITULOS.LIVROS-PUBLICADOS-OU-ORGANIZADOS`|
-| Produção bibliográfica - capítulos de livros | 🎬 |  ✅ |  ✅ |  ✅ | `PRODUCAO-BIBLIOGRAFICA.LIVROS-E-CAPITULOS.CAPITULOS-DE-LIVROS-PUBLICADOS`|
-| Produção bibliográfica - texto em jornal ou revista | ⛔️ | ✅ |  ❌ | ❌ | |
-| Produção bibliográfica - Trabalhos em eventos - Resumo completos publicado em anias do congresso |  🎬 |  ✅ |  ✅ |  ✅ | `PRODUCAO-BIBLIOGRAFICA.TRABALHOS-EM-EVENTOS.TRABALHO-EM-EVENTOS` |
-| Produção bibliográfica - Trabalhos em eventos - Resumo expandido publicado em anias do congresso |  🎬 |  ✅ |  ✅ |  ✅ | `PRODUCAO-BIBLIOGRAFICA.TRABALHOS-EM-EVENTOS.TRABALHO-EM-EVENTOS` |
-| Produção bibliográfica - Trabalhos em eventos - Resumo publicado em anias de congresso |  🎬 |  ✅ |  ✅ |  ✅ | `PRODUCAO-BIBLIOGRAFICA.TRABALHOS-EM-EVENTOS.TRABALHO-EM-EVENTOS` |
-| **Produção técnica** | 👷🏼 | ✅ | ✅ | ✅ | `PRODUCAO-TECNICA`|
-| Produção técnica - Demais produções técnicas | 👷🏼 |  ✅ |  ✅ | ✅ | `PRODUCAO-TECNICA.DEMAIS-TIPOS-DE-PRODUCAO-TECNICA` |
+| Área                                                                                   | Coded? | Parte de tipo *completo* | Parte de tipo *ampliado* | Parte de tipo *resumido* | Key para área                                                                                    |
+|:---------------------------------------------------------------------------------------|:------:|:------------------------:|:------------------------:|:------------------------:|:-------------------------------------------------------------------------------------------------|
+| **Identificação**                                                                      |   🎬   |            ✅             |            ✅             |            ✅             | `detalhes.DADOS-GERAIS`                                                                          |
+| **Idiomas**                                                                            |   🎬   |            ✅             |            ✅             |            ❌             | `DADOS-GERAIS.IDIOMAS`                                                                           |
+| **Formação acadêmica** (provavelmente nem todos tipos)                                 |  👷🏼  |            ✅             |            ✅             |            ✅             | `DADOS-GERAIS.FORMACAO-ACADEMICA-TITULACAO`                                                      |
+| **Formação complementar**                                                              |   🎬   |            ✅             |            ✅             |            ✅             | `DADOS-COMPLEMENTARES.FORMACAO-COMPLEMENTAR`                                                     |
+| **Atuação profissional** (talvez tenha mais tipos)                                     |  👷🏼  |            ✅             |            ✅             |            ✅             | `DADOS-GERAIS.ATUACOES-PROFISSIONAIS.ATUACAO-PROFISSIONAL`                                       |
+| Atuação profissional - Vínculos                                                        |   🎬   |            ✅             |            ✅             |            ✅             |                                                                                                  |
+| Atuação profissional - Vínculos - Atividades Comissões (provavelmente não todos tipos) |  👷🏼  |            ✅             |            ✅             |            ✅             |                                                                                                  |
+| Atuação profissional - Vínculos - Atividades Ensino (provavelmente não todos tipos)    |  👷🏼  |            ✅             |            ✅             |            ✅             |                                                                                                  |
+| **Projetos** (talvez tenha mais tipos)                                                 |  👷🏼  |            ✅             |            ❌             |            ❌             | `DADOS-GERAIS.ATUACOES-PROFISSIONAIS.ATUACAO-PROFISSIONAL.ATIVIDADES-DE-PARTICIPACAO-EM-PROJETO` |
+| Projetos - Projetos de pesquisa                                                        |   🎬   |            ✅             |            ❌             |            ❌             |                                                                                                  |
+| Projetos - Projetos de desenvolvimento tecnologica                                     |  👷🏼  |            ✅             |            ❌             |            ❌             |                                                                                                  |
+| Projetos - Projetos de extensão                                                        |   🎬   |            ✅             |            ❌             |            ❌             |                                                                                                  |
+| Projetos - Projetos de ensino                                                          |   🎬   |            ✅             |            ❌             |            ❌             |                                                                                                  |
+| Projetos - Outros tipos de extensão                                                    |  👷🏼  |            ✅             |            ❌             |            ❌             |                                                                                                  |
+| **Revisor periódico**                                                                  |   🎬   |            ✅             |            ✅             |            ✅             | `DADOS-GERAIS.ATUACOES-PROFISSIONAIS.ATUACAO-PROFISSIONAL.VINCULOS.OUTRO-VINCULO-INFORMADO`      |
+| **Membro de comitê de assessora**                                                      |   🎬   |            ✅             |            ✅             |            ✅             | `DADOS-GERAIS.ATUACOES-PROFISSIONAIS.ATUACAO-PROFISSIONAL.VINCULOS.OUTRO-VINCULO-INFORMADO`      |
+| **Revisor de projeto de agência de fomento**                                           |   🎬   |            ✅             |            ✅             |            ✅             | `DADOS-GERAIS.ATUACOES-PROFISSIONAIS.ATUACAO-PROFISSIONAL.VINCULOS.OUTRO-VINCULO-INFORMADO`      |
+| **Área de atuação**                                                                    |   🎬   |            ✅             |            ✅             |            ❌             | `DADOS-GERAIS.AREAS-DE-ATUACAO.AREA-DE-ATUACAO`                                                  |
+| **Prêmios e títulos** (provavelmente nem todos tipos)                                  |  👷🏼  |            ✅             |            ✅             |            ❌             | `DADOS-GERAIS.PREMIOS-TITULOS`                                                                   |
+| **Produção bibliográfica** (talvez tenha mais tipos)                                   |  👷🏼  |            ✅             |            ✅             |            ✅             | `PRODUCAO-BIBLIOGRAFICA`                                                                         |
+| Produção bibliográfica - artigos                                                       |   🎬   |            ✅             |            ✅             |            ✅             | `PRODUCAO-BIBLIOGRAFICA.ARTIGOS-PUBLICADOS.ARTIGO-PUBLICADO`                                     |
+| Produção bibliográfica - livros                                                        |   🎬   |            ✅             |            ✅             |            ✅             | `PRODUCAO-BIBLIOGRAFICA.LIVROS-E-CAPITULOS.LIVROS-PUBLICADOS-OU-ORGANIZADOS`                     |
+| Produção bibliográfica - capítulos de livros                                           |   🎬   |            ✅             |            ✅             |            ✅             | `PRODUCAO-BIBLIOGRAFICA.LIVROS-E-CAPITULOS.CAPITULOS-DE-LIVROS-PUBLICADOS`                       |
+| Produção bibliográfica - texto em jornal ou revista                                    |   ⛔️   |            ✅             |            ❌             |            ❌             |                                                                                                  |
+| Produção bibliográfica - Trabalhos em eventos - Resumo expandido publicado em anias do congresso |  🎬 |  ✅ |  ✅ |  ✅ | 
+| Produção bibliográfica - Trabalhos em eventos - Resumo publicado em anias de congresso |  🎬 |  ✅ |  ✅ |  ✅ | 
+| **Produção técnica** | 👷🏼 | ✅ | ✅ | ✅ | |
+| Produção técnica - Demais produções técnicas | 👷🏼 |  ✅ |  ✅ | ✅ | |
 | Produção técnica - Assessoria | ⛔️ | ✅ |  ❌ | ❌ | |
 | Produção técnica - Extensão tecnológica |  ⛔️ | ✅ |  ❌ | ❌ | |
 | Produção técnica - Programa de computador sem registro | ⛔️ | ✅ |  ❌ | ❌ | |
@@ -125,7 +124,7 @@ Embaixo tem uma tabela sobre as áreas no currículo Lattes. Eu não tenho todas
 | Produção técnica - Outras produções técnicas |  ⛔️ | ✅ |  ❌ | ❌ | |
 | Produção técnica - Entrevistas, mesas redondas, programas e comentários na mídia |  ⛔️ | ✅ |  ❌ | ❌ | |
 | Produção técnica - Redes sociais, websites, blogs |  ⛔️ | ✅ |  ❌ | ❌ | |
-| Produção técnica - Demais produções técnicas - Apresentações de trabalho e palestra | 🎬 |  ✅ |  ❌ | ❌ | `PRODUCAO-TECNICA.DEMAIS-TIPOS-DE-PRODUCAO-TECNICA.APRESENTACAO-DE-TRABALHO` |
+| Produção técnica - Apresentações de trabalho e palestra | 🎬 |  ✅ |  ❌ | ❌ | `PRODUCAO-TECNICA.DEMAIS-TIPOS-DE-PRODUCAO-TECNICA.APRESENTACAO-DE-TRABALHO` |
 | **Produção artista/cultural** | ⛔️ | 🧐 | 🧐 | 🧐 | |
 | Produção artista/cultural - Artes cénicas | ⛔️ | 🧐 | 🧐 | 🧐 | |
 | Produção artista/cultural - Música | ⛔️ | 🧐 | 🧐 | 🧐 | |
@@ -154,7 +153,7 @@ Embaixo tem uma tabela sobre as áreas no currículo Lattes. Eu não tenho todas
 | Bancas - Participação em banca de comissões julgadores - Outra | ⛔️ | ✅ |  ❌ | ❌ | |
 | **Eventos** | 👷🏼 |  ✅ |  ❌ | ❌ | `DADOS-COMPLEMENTARES` |
 | Eventos - Participação em eventos, congressos, exposições, feiras e olimpíadas | 🎬 |  ✅ |  ❌ | ❌ | `DADOS-COMPLEMENTARES.PARTICIPACAO-EM-EVENTOS-CONGRESSOS` / `."PARTICIPACAO-EM-SIMPOSIO` / `.PARTICIPACAO-EM-ENCONTRO` / `.OUTRAS-PARTICIPACOES-EM-EVENTOS-CONGRESSOS` |
-| Eventos - Organização de eventos, congressos, exposições, feiras e olimpíadas | 👷🏼 | ✅ |  ❌ | ❌ | `PRODUCAO-TECNICA.DEMAIS-TIPOS-DE-PRODUCAO-TECNICA.ORGANIZACAO-DE-EVENTO` |
+| Eventos - Organização de eventos, congressos, exposições, feiras e olimpíadas | 👷🏼 | ✅ |  ❌ | ❌ | |
 | **Orientaçãoes e Supervisões** | 👷🏼 | ✅ | ✅ | ✅ | `OUTRA-PRODUCAO` |
 | Orientações e Supervisões - em andamento (not tested yet) | 👷🏼 | ✅ | ✅ | ✅ | `OUTRA-PRODUCAO.ORIENTACOES-EM-ANDAMENTO` ?|
 | Orientações e Supervisões - em andamento - graduação (not tested yet) | 👷🏼 | ✅ | ✅ | ✅ | |
@@ -165,8 +164,8 @@ Embaixo tem uma tabela sobre as áreas no currículo Lattes. Eu não tenho todas
 | Orientações e Supervisões - em andamento - Supervisão de pós-doutorado | ⛔️ | ✅ | ✅ | ✅ | |
 | Orientações e Supervisões - em andamento - orientação de outra natureza | ⛔️ | ✅ | ✅ | ✅ | |
 | Orientações e Supervisões - concluídas | 👷🏼 | ✅ | ✅ | ✅ | `OUTRA-PRODUCAO.ORIENTACOES-CONCLUIDAS` |
-| Orientações e Supervisões - concluídas - graduação | 🎬 | ✅ | ✅ | ✅ | `OUTRAS-ORIENTACOES-CONCLUIDAS` |
-| Orientações e Supervisões - concluídas - mestrado | 🎬 | ✅ | ✅ | ✅ | `ORIENTACOES-CONCLUIDAS-PARA-MESTRADO` |
+| Orientações e Supervisões - concluídas - graduação (not fully tested) | 👷🏼 | ✅ | ✅ | ✅ | |
+| Orientações e Supervisões - concluídas - mestrado | 🎬 | ✅ | ✅ | ✅ | |
 | Orientações e Supervisões - concluídas - doutorado (not tested) | 👷🏼 | ✅ | ✅ | ✅ | |
 | Orientações e Supervisões - concluídas - Monografia de conclusão de curso de aperfeiçoamento/especialização | ⛔️ | ✅ | ✅ | ✅ | |
 | Orientações e Supervisões - concluídas - Iniciação Científica | ⛔️ | ✅ | ✅ | ✅ | |
@@ -232,8 +231,6 @@ Embaixo tem uma tabela sobre as áreas no currículo Lattes. Eu não tenho todas
 
 # 👷🏼‍♀️ ⚠ Still under construction, it is not ready for all types of entrances.
 
-The template is available on [Typst](https://typst.app/universe/package/curriculo-acad) _online editor_, as *curriculo-acad*. You can directly use this link to create a project: [link](https://typst.app/app?template=curriculo-acad&version=0.1.0). Don't forget to upload your to TOML transformed XML file into the project.
-
 [LATTES](https://lattes.cnpq.br) is a great platform for academics to store all their scientific work. However, the export options are quite frustrating, as exporting to RTF does not result in a well-formatted résumé.  
 
 That's why I'm trying to solve this problem by exporting the XML file and creating this template to generate a well-formatted PDF using [Typst](https://typst.app). If you haven't heard of [Typst](https://typst.app) yet, it's a much easier-to-learn language and a faster typesetting system than LaTeX.  
@@ -242,7 +239,7 @@ I started this project, and since my [LATTES](https://lattes.cnpq.br) résumé d
 
 ## Fonts
 
-I use [Source Sans Pro](https://fonts.google.com/specimen/Source+Sans+3), which you can get [here](https://fonts.google.com/specimen/Source+Sans+3).
+I use [Source Sans 3](https://fonts.google.com/specimen/Source+Sans+3), which you can get [here](https://fonts.google.com/specimen/Source+Sans+3).
 
 ## Usage
 
@@ -256,6 +253,8 @@ python3 helper.py path-to-your-xml-file
 
 This will create the file my-file.toml, which you can use in Typst documents.
 
+You can find the script [here](https://github.com/philkleer/curriculo-acad).
+
 ### Creating the PDF  
 
 The structure of the main file is quite simple. You only need to specify which version of the résumé you want in the `kind` argument: `resumido`, `ampliado`, or `completo`. Depending on your choice, you use the specific function:  
@@ -263,12 +262,12 @@ The structure of the main file is quite simple. You only need to specify which v
 ```typst
 // Import of libraries
 #import "lib.typ": *
-#import "@preview/datify:0.1.3": *
+#import "@preview/datify:1.0.0": *
 
 #show: lattes-cv.with(
   database: "data/lattes.toml",
   kind: "completo",
-  me: "KLEER",
+  me: "PESSOA",
   date: datetime.today()
   last_page: true
 )     
