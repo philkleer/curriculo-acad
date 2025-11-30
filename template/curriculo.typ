@@ -1,5 +1,5 @@
 // import of libraries
-#import "@preview/curriculo-acad:0.1.3": *
+#import "@preview/curriculo-acad:0.1.1": *
 #import "@preview/datify:1.0.0": *
 
 
