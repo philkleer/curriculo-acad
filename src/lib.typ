@@ -24,14 +24,13 @@
   // define author
   let author = details.DADOS-GERAIS.NOME-COMPLETO
 
-
   // define the document
   set document(title: "CV Lattes", author: author)
 
   // set text options (size, font, language)
   set text(
     size: 12pt,
-    font: ("Source Sans 3", "Open Sans", "Times New Roman"),
+    font: "Source Sans Pro",
     lang: "pt",
     region: "br",
   )
@@ -49,7 +48,6 @@
   ]
 
   align(bottom + center)[
-    // #text(custom-date-format(date, pattern: "full", lang: "fr"))
     #smallcaps[#get-month-name(datetime.today().month(), lang: "pt", usage: "format") de #datetime.today().year()]
   ]
 

@@ -33,8 +33,7 @@ A estrutura do arquivo principal é bastante simples. Você só precisa indicar 
 
 ```typst
 // Import of libraries
-#import "@preview/curriculo-acad:0.1.1": *
-#import "@preview/datify:1.0.0": *
+#import "@preview/curriculo-acad:0.1.2": *
 
 #show: lattes-cv.with(
   database: "data/lattes.toml",
@@ -208,7 +207,7 @@ Embaixo tem uma tabela sobre as áreas no currículo Lattes. Eu não tenho todas
 | Educação e Popularização de C&T - Outra produção técnica |  ⛔️ | ✅ | ❌ | ❌  | |
 | Educação e Popularização de C&T - Outra produção artística/ cultural |  ⛔️ | ✅ | ❌ | ❌  | |
 | **Licenças** | ⛔️ | 🧐 | 🧐 | 🧐 |  |
-| **Citações** | ⛔️ | 🧐 | 🧐 | 🧐 | |
+| **Citações** | ⛔️ | ✅ | ✅ | ✅ | |
 | **Totais de produções** (você poderia escolher também para resumido e ampliado com argumento `last_page`) | 👷🏼 | ✅ | ❌ | ❌ | |
 | **Outras informações relevantes** | ⛔️ | 🧐 | 🧐 | 🧐 | |
 
@@ -261,8 +260,7 @@ The structure of the main file is quite simple. You only need to specify which v
 
 ```typst
 // Import of libraries
-#import "@preview/curriculo-acad:0.1.1": *
-#import "@preview/datify:1.0.0": *
+#import "@preview/curriculo-acad:0.1.2": *
 
 #show: lattes-cv.with(
   database: "data/lattes.toml",

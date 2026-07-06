@@ -17,8 +17,15 @@
 
 
         // tirando todos eventos de sub-arrays
+        // for tipo in dados-participation {
+        //     let subset = tipo.at(1)
+        //     for event in subset {
+        //         helper_array.push(event)
+        //     }
+        // }
         for tipo in dados-participation {
-            let subset = tipo.at(1)
+            let subset = ensure-array(tipo.at(1))
+
             for event in subset {
                 helper_array.push(event)
             }
@@ -27,21 +34,25 @@
         // criando ORDER para ordenar
         // duplicar DADOS BASICOS porque nome é sempre diferente
         for entry in helper_array {
-            if "DADOS-BASICOS-DA-PARTICIPACAO-EM-CONGRESSO" in entry.keys() {
+            if "DADOS-BASICOS-DA-PARTICIPACAO-EM-CONGRESSO" in entry { //.keys()
                 entry.insert("DADOS-BASICOS", entry.DADOS-BASICOS-DA-PARTICIPACAO-EM-CONGRESSO)
                 entry.insert("NOME-DO-EVENTO", entry.DETALHAMENTO-DA-PARTICIPACAO-EM-CONGRESSO.NOME-DO-EVENTO)
             }
-            if "DADOS-BASICOS-DA-PARTICIPACAO-EM-SIMPOSIO" in entry.keys() {
+            if "DADOS-BASICOS-DA-PARTICIPACAO-EM-SIMPOSIO" in entry { //.keys()
                 entry.insert("DADOS-BASICOS", entry.DADOS-BASICOS-DA-PARTICIPACAO-EM-SIMPOSIO)
                 entry.insert("NOME-DO-EVENTO", entry.DETALHAMENTO-DA-PARTICIPACAO-EM-SIMPOSIO.NOME-DO-EVENTO)
             }
-            if "DADOS-BASICOS-DA-PARTICIPACAO-EM-ENCONTRO" in entry.keys() {
+            if "DADOS-BASICOS-DA-PARTICIPACAO-EM-ENCONTRO" in entry { //.keys()
                 entry.insert("DADOS-BASICOS", entry.DADOS-BASICOS-DA-PARTICIPACAO-EM-ENCONTRO)
                 entry.insert("NOME-DO-EVENTO", entry.DETALHAMENTO-DA-PARTICIPACAO-EM-ENCONTRO.NOME-DO-EVENTO)
             }
-            if "DADOS-BASICOS-DE-OUTRAS-PARTICIPACOES-EM-EVENTOS-CONGRESSOS" in entry.keys() {
+            if "DADOS-BASICOS-DE-OUTRAS-PARTICIPACOES-EM-EVENTOS-CONGRESSOS" in entry { //.keys()
                 entry.insert("DADOS-BASICOS", entry.DADOS-BASICOS-DE-OUTRAS-PARTICIPACOES-EM-EVENTOS-CONGRESSOS)
                 entry.insert("NOME-DO-EVENTO", entry.DETALHAMENTO-DE-OUTRAS-PARTICIPACOES-EM-EVENTOS-CONGRESSOS.NOME-DO-EVENTO)
+            }
+            if "DADOS-BASICOS-DA-PARTICIPACAO-EM-SEMINARIO" in entry {
+                entry.insert("DADOS-BASICOS", entry.DADOS-BASICOS-DA-PARTICIPACAO-EM-SEMINARIO)
+                entry.insert("NOME-DO-EVENTO", entry.DETALHAMENTO-DA-PARTICIPACAO-EM-SEMINARIO.NOME-DO-EVENTO)
             }
             participacoes.push(entry)
         }
@@ -128,23 +139,34 @@
 #let create-events(detalhes, eu) = {
 
     // Participação
-    if "PARTICIPACAO-EM-EVENTOS-CONGRESSOS" in detalhes.DADOS-COMPLEMENTARES.keys() {
+    if "PARTICIPACAO-EM-EVENTOS-CONGRESSOS" in detalhes.DADOS-COMPLEMENTARES { //.keys()
         // criando banco de dados
         let eventos = detalhes.DADOS-COMPLEMENTARES.PARTICIPACAO-EM-EVENTOS-CONGRESSOS
         
         create-participation-events(eventos, eu)
     }
     
-    if "ORGANIZACAO-DE-EVENTO" in detalhes.PRODUCAO-TECNICA.DEMAIS-TIPOS-DE-PRODUCAO-TECNICA.keys() {
-        let subset = detalhes.PRODUCAO-TECNICA.DEMAIS-TIPOS-DE-PRODUCAO-TECNICA.ORGANIZACAO-DE-EVENTO
-        subset = subset.sorted(key: (item) => (item.DADOS-BASICOS-DA-ORGANIZACAO-DE-EVENTO.ANO, item.DADOS-BASICOS-DA-ORGANIZACAO-DE-EVENTO.TITULO ))
+    if "ORGANIZACAO-DE-EVENTO" in detalhes.PRODUCAO-TECNICA.DEMAIS-TIPOS-DE-PRODUCAO-TECNICA { //.keys()
+        // let subset = detalhes.PRODUCAO-TECNICA.DEMAIS-TIPOS-DE-PRODUCAO-TECNICA.ORGANIZACAO-DE-EVENTO
+        // subset = subset.sorted(key: (item) => (item.DADOS-BASICOS-DA-ORGANIZACAO-DE-EVENTO.ANO, item.DADOS-BASICOS-DA-ORGANIZACAO-DE-EVENTO.TITULO ))
+        let subset = ensure-array(
+            detalhes.PRODUCAO-TECNICA.DEMAIS-TIPOS-DE-PRODUCAO-TECNICA.ORGANIZACAO-DE-EVENTO
+        )
+
+        subset = subset.sorted(
+            key: (item) => (
+                item.DADOS-BASICOS-DA-ORGANIZACAO-DE-EVENTO.ANO,
+                item.DADOS-BASICOS-DA-ORGANIZACAO-DE-EVENTO.TITULO
+            )
+        )
 
         create-organization-events(subset, eu)    
     }
 
-    if "PARTICIPACAO-EM-EVENTOS-CONGRESSOS" in detalhes.DADOS-COMPLEMENTARES.keys() or "ORGANIZACAO-DE-EVENTO" in detalhes.PRODUCAO-TECNICA.DEMAIS-TIPOS-DE-PRODUCAO-TECNICA.keys() {
+    if "PARTICIPACAO-EM-EVENTOS-CONGRESSOS" in detalhes.DADOS-COMPLEMENTARES or "ORGANIZACAO-DE-EVENTO" in detalhes.PRODUCAO-TECNICA.DEMAIS-TIPOS-DE-PRODUCAO-TECNICA { //.keys() .keys()
         linebreak()
 
         line(length: 100%)
     }
+
 }
