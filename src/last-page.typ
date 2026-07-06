@@ -494,32 +494,23 @@
             // Loop através dos eventos
             // Os eventos são um array no qual cada evento é armazenado, portanto, podemos pegar o comprimento aqui
             for event in eventos.keys() {
-                let subset = eventos.at(event)
-                if type(subset) == array {
-                    if event == "PARTICIPACAO-EM-CONGRESSO" { 
-                        num_congressos = subset.len()
-                    } else if event == "PARTICIPACAO-EM-SEMINARIO" {
-                        num_seminarios = subset.len()
-                    } else if event == "PARTICIPACAO-EM-SIMPOSIO" {
-                        num_simposios = subset.len()
-                    } else if event == "PARTICIPACAO-EM-ENCONTRO" {
-                        num_encontros = subset.len()
-                    } else if event == "OUTRAS-PARTICIPACOES-EM-EVENTOS-CONGRESSOS" { 
-                        num_outras = subset.len()
-                    }
-                } else if type(subset) == dictionary {
-                    if event.at(1).NATUREZA == "Congresso" { 
-                        num_congressos = 1
-                    } else if event.at(1).NATUREZA == "Seminário" { 
-                        num_seminarios = 1
-                    } else if event.at(1).NATUREZA == "Simpósio" {
-                        num_simposios = 1
-                    } else if event.at(1).NATUREZA == "Encontro" { 
-                        num_encontros = 1
-                    } else if event.at(1).NATUREZA == "Outra" {
-                        num_outras = 1
-                    }
-                } 
+                let subset = ensure-array(eventos.at(event))
+                // let subset = eventos.at(event)
+
+                let count = 0
+                let count = subset.len()
+
+                if event == "PARTICIPACAO-EM-CONGRESSO" {
+                    num_congressos = count
+                } else if event == "PARTICIPACAO-EM-SEMINARIO" {
+                    num_seminarios = count
+                } else if event == "PARTICIPACAO-EM-SIMPOSIO" {
+                    num_simposios = count
+                } else if event == "PARTICIPACAO-EM-ENCONTRO" {
+                    num_encontros = count
+                } else if event == "OUTRAS-PARTICIPACOES-EM-EVENTOS-CONGRESSOS" {
+                    num_outras = count
+                }
             }
 
             // somente se estiver "completo"
